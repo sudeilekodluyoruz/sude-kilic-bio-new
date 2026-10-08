@@ -1,0 +1,2305 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#241923">
+    <meta name="description" content="Sude Nur Kılıç — yazılım geliştirme, web teknolojileri ve siber güvenlik. Projelerime ve sosyal profillerime göz atın.">
+    <meta property="og:title" content="Sude Nur Kılıç | Yazılım Geliştirme">
+    <meta property="og:description" content="Kod, öğrenme ve üretme yolculuğum. Projelerime ve sosyal profillerime göz atın.">
+    <meta property="og:type" content="website">
+        <title> Sude Nur Kılıç | Yazılım Geliştirme </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Caveat:wght@500;600;700&family=Caveat:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=DM+Mono:wght@400;500&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+/* Renkler ve yazı tipleri */
+:root {
+  --bg: #101114;
+  --panel: #17191e;
+  --panel2: #1c1e23;
+  --text: #f1f0ed;
+  --muted: #9b9ba2;
+  --accent: #f18b68;
+  --line: #2b2d33;
+  --mono: 'DM Mono',monospace;
+  --sans: 'Manrope',sans-serif;
+}
+/* Sayfa genelindeki temel ayarlar */
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+.ambient {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .12;
+}
+.ambient-one {
+  background: #b7553b;
+  width: 370px;
+  height: 370px;
+  top: 130px;
+  right: 3%;
+}
+.ambient-two {
+  background: #575b87;
+  width: 300px;
+  height: 300px;
+  top: 880px;
+  left: -180px;
+}
+.page-shell {
+  width: min(100% - 64px,1060px);
+  margin: auto;
+}
+/* Üst menü ve tanıtım alanı */
+.topbar {
+  height: 82px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.3px;
+}
+.wordmark-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #55565b;
+  border-radius: 50%;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 15px;
+}
+.top-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.top-note i,.caption-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a3d89f;
+  box-shadow: 0 0 11px #a3d988;
+}
+.hero {
+  min-height: 570px;
+  display: grid;
+  grid-template-columns: 1.06fr .94fr;
+  align-items: center;
+  position: relative;
+  padding: 66px 5% 82px;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #aaa9ae;
+  font: 11px var(--mono);
+  letter-spacing: 1.2px;
+}
+.eyebrow-line {
+  display: inline-block;
+  width: 25px;
+  height: 1px;
+  background: var(--accent);
+}
+h1 {
+  font-size: clamp(54px,7vw,78px);
+  line-height: 1.03;
+  letter-spacing: -5px;
+  margin: 24px 0 15px;
+  font-weight: 700;
+}
+h1 span {
+  color: var(--accent);
+}
+.role {
+  font-size: 14px;
+  color: #e3e0dc;
+  margin: 0;
+}
+.role b {
+  color: var(--accent);
+  padding: 0 6px;
+}
+.intro {
+  max-width: 430px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 21px 0 26px;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 23px;
+  padding: 12px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 12px;
+  transition: transform .2s,background .2s;
+}
+.button:hover,.social-card:hover {
+  transform: translateY(-3px);
+}
+.button-primary {
+  background: var(--accent);
+  color: #191512;
+}
+.button-primary span,.text-link span {
+  font-size: 17px;
+}
+.text-link {
+  color: #dedbd7;
+  text-decoration: none;
+  font-size: 12px;
+}
+.text-link:hover,.project-hint a:hover {
+  color: var(--accent);
+}
+.portrait-wrap {
+  height: 370px;
+  width: 350px;
+  max-width: 100%;
+  justify-self: end;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.portrait-glow {
+  position: absolute;
+  inset: 3% 4%;
+  border-radius: 50%;
+  background: radial-gradient(circle,#b46852 0%,#6e3b34 42%,transparent 72%);
+  filter: blur(28px);
+  opacity: .38;
+}
+.portrait {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 47%;
+  border-radius: 50%;
+  border: 1px solid #64514c;
+  box-shadow: 0 22px 65px #0008;
+  filter: saturate(.85);
+}
+.portrait-caption {
+  position: absolute;
+  right: 3px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 13px;
+  background: #202127;
+  border: 1px solid #35363d;
+  border-radius: 3px;
+  color: #c3c0bf;
+  font: 9px var(--mono);
+  letter-spacing: .8px;
+}
+.caption-dot {
+  width: 6px;
+  height: 6px;
+}
+.orbit {
+  position: absolute;
+  border: 1px solid #f18b6826;
+  border-radius: 50%;
+  width: 360px;
+  height: 360px;
+  transform: rotate(-20deg) scaleY(.4);
+}
+.orbit-a {
+  border-color: #ffffff14;
+}
+.orbit-b {
+  transform: rotate(58deg) scaleY(.4);
+  width: 390px;
+  height: 390px;
+}
+.hero-index {
+  position: absolute;
+  bottom: 22px;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 10px var(--mono);
+  letter-spacing: 1px;
+  color: #7e7e85;
+}
+.hero-index span:first-child {
+  color: var(--accent);
+}
+.index-rule {
+  width: 48px;
+  height: 1px;
+  background: #56565c;
+}
+/* Sosyal medya bağlantı kartları */
+.social-section {
+  padding: 37px 0 85px;
+  border-top: 1px solid var(--line);
+}
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font: 10px var(--mono);
+  letter-spacing: 1.5px;
+  color: #8b8b91;
+  margin-bottom: 19px;
+}
+.section-line {
+  height: 1px;
+  flex: 1;
+  background: var(--line);
+}
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 11px;
+}
+.social-card {
+  min-height: 77px;
+  padding: 13px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: var(--panel);
+  border: 1px solid #24262b;
+  border-radius: 5px;
+  color: inherit;
+  text-decoration: none;
+  transition: .2s;
+}
+.social-card:hover {
+  border-color: #5a443d;
+  background: #1d1e23;
+}
+.social-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 4px;
+  background: #27292f;
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  font: 12px var(--mono);
+}
+.social-card strong,.social-card small {
+  display: block;
+}
+.social-card strong {
+  font-size: 12px;
+}
+.social-card small {
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.arrow {
+  margin-left: auto;
+  color: #85858b;
+  font-size: 15px;
+}
+/* Proje listesi ve teknoloji etiketleri */
+.projects-section {
+  padding: 4px 0 82px;
+}
+.projects-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.projects-heading h2,.about-heading h2 {
+  font-size: 35px;
+  line-height: 1.2;
+  letter-spacing: -1.4px;
+  margin: 14px 0 0;
+}
+.projects-heading h2 span {
+  color: var(--accent);
+}
+.project-count {
+  font: 10px var(--mono);
+  letter-spacing: 1px;
+  color: #8f8e94;
+  margin-bottom: 5px;
+}
+.project-list {
+  border-top: 1px solid var(--line);
+}
+.project-card {
+  display: grid;
+  grid-template-columns: 60px 1fr 30px;
+  gap: 8px;
+  padding: 21px 6px 20px;
+  border-bottom: 1px solid var(--line);
+  transition: background .2s;
+}
+.project-card:hover {
+  background: #ffffff04;
+}
+.project-number {
+  font: 11px var(--mono);
+  color: var(--accent);
+  padding-top: 4px;
+}
+.project-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.project-title-row h3 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: 700;
+}
+.project-date {
+  font: 9px var(--mono);
+  color: #88878e;
+  letter-spacing: .5px;
+}
+.project-main p {
+  max-width: 660px;
+  margin: 7px 0 12px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.tags span {
+  font: 9px var(--mono);
+  color: #c2bcb8;
+  border: 1px solid #343238;
+  background: #1a1b20;
+  padding: 4px 7px;
+  border-radius: 2px;
+}
+.project-symbol {
+  color: #77777e;
+  font-size: 17px;
+}
+.project-hint {
+  font-size: 11px;
+  color: #89898f;
+  margin: 18px 0 0 68px;
+}
+.project-hint a {
+  color: #e4ded9;
+  text-decoration: none;
+  margin-left: 6px;
+}
+.about-section {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 10%;
+  padding: 42px 5% 76px;
+  border-top: 1px solid var(--line);
+}
+.about-heading h2 {
+  font-size: 36px;
+  margin-top: 17px;
+}
+.about-heading h2 span {
+  color: var(--accent);
+}
+.about-content>p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin: 0 0 19px;
+}
+.education-note {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px;
+  background: var(--panel);
+  border: 1px solid #27282e;
+  border-radius: 4px;
+}
+.edu-mark {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background: #29262a;
+  border-radius: 3px;
+}
+.education-note strong,.education-note small {
+  display: block;
+}
+.education-note strong {
+  font-size: 11px;
+}
+.education-note small {
+  font-size: 10px;
+  color: var(--muted);
+}
+.skills {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.skills span {
+  font-size: 10px;
+  color: #c9c6c3;
+  padding: 5px 9px;
+  border: 1px solid #34353a;
+  border-radius: 20px;
+}
+.contact-band {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 30px;
+  background: linear-gradient(105deg,#241d1b,#1c1e23 72%);
+  border: 1px solid #39302e;
+  border-radius: 5px;
+}
+.contact-band .eyebrow {
+  font-size: 9px;
+  color: #b6a69f;
+}
+.contact-band h2 {
+  font-size: 23px;
+  letter-spacing: -.6px;
+  margin: 4px 0 0;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 11px 15px;
+  border: 1px solid #65534e;
+  border-radius: 3px;
+  color: #f0e9e4;
+  text-decoration: none;
+  font-size: 11px;
+}
+.contact-link span {
+  color: var(--accent);
+  font-size: 17px;
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 0 33px;
+  color: #77777e;
+  font-size: 10px;
+}
+footer .wordmark {
+  font-size: 12px;
+}
+.back-top {
+  color: #aaa9ae;
+  text-decoration: none;
+}
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+/* Tablet ve telefon ekranları */
+@media(max-width:760px) {
+  .page-shell {
+    width: min(100% - 36px,560px);
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 57px 3% 77px;
+    min-height: auto;
+  }
+  .hero-copy {
+    order: 1;
+  }
+  .portrait-wrap {
+    order: 0;
+    justify-self: center;
+    height: 270px;
+    width: 280px;
+    margin-bottom: 28px;
+  }
+  .portrait {
+    width: 228px;
+    height: 228px;
+  }
+  .orbit {
+    width: 282px;
+    height: 282px;
+  }
+  .orbit-b {
+    width: 305px;
+    height: 305px;
+  }
+  .portrait-caption {
+    right: -4px;
+    bottom: 12px;
+    font-size: 8px;
+  }
+  .hero-index {
+    left: 3%;
+  }
+  h1 {
+    font-size: 62px;
+  }
+  .social-section {
+    padding: 31px 0 62px;
+  }
+  .social-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+  .social-card {
+    padding: 11px 9px;
+    gap: 8px;
+  }
+  .social-card small {
+    font-size: 8px;
+  }
+  .projects-section {
+    padding-bottom: 58px;
+  }
+  .projects-heading h2 {
+    font-size: 29px;
+  }
+  .project-card {
+    grid-template-columns: 35px 1fr 20px;
+    gap: 5px;
+  }
+  .project-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .project-title-row h3 {
+    font-size: 14px;
+  }
+  .project-main p {
+    font-size: 11px;
+  }
+  .project-hint {
+    margin-left: 40px;
+  }
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 36px 3% 55px;
+  }
+  .about-heading h2 {
+    font-size: 32px;
+  }
+  .contact-band {
+    padding: 20px 16px;
+  }
+  .contact-band h2 {
+    font-size: 19px;
+  }
+  .contact-link {
+    gap: 13px;
+    padding: 10px;
+    font-size: 10px;
+  }
+  footer {
+    gap: 10px;
+  }
+  footer>span {
+    font-size: 9px;
+  }
+;
+}
+@media(max-width:380px) {
+  .page-shell {
+    width: calc(100% - 28px);
+  }
+  h1 {
+    font-size: 55px;
+  }
+  .social-card {
+    gap: 6px;
+  }
+  .social-icon {
+    width: 29px;
+    height: 29px;
+    flex-basis: 29px;
+  }
+  .social-card strong {
+    font-size: 11px;
+  }
+  .contact-band {
+    align-items: flex-start;
+    gap: 9px;
+    flex-direction: column;
+  }
+  .contact-link {
+    align-self: flex-end;
+  }
+;
+}
+
+
+/* Soft pembe renk paleti ve kişisel dokunuşlar */
+:root {
+  --bg: #fff8fa;
+  --panel: #ffffff;
+  --panel2: #fff0f4;
+  --text: #392d36;
+  --muted: #887982;
+  --accent: #cf7898;
+  --line: #f0dfe6;
+  --mono: "DM Mono", monospace;
+  --sans: "Nunito Sans", sans-serif;
+  --serif: "Cormorant Garamond", Georgia, serif;
+}
+
+html {
+  scroll-padding-top: 24px;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 10% 12%, #f9e1e9 0, transparent 28rem),
+    radial-gradient(ellipse at 92% 48%, #f9eaf0 0, transparent 31rem),
+    var(--bg);
+  color: var(--text);
+}
+
+.ambient-one {
+  background: #e6a9bf;
+  opacity: .17;
+}
+
+.ambient-two {
+  background: #e7bfd0;
+  opacity: .2;
+}
+
+.topbar {
+  border-color: #ead8e0;
+}
+
+.wordmark-mark {
+  border-color: #e7c3d1;
+  background: #fff;
+  color: #bd6688;
+}
+
+.top-note {
+  color: #806e78;
+}
+
+.top-note i,
+.caption-dot {
+  background: #d782a1;
+  box-shadow: 0 0 10px #e6abc0;
+}
+
+.hero {
+  min-height: 600px;
+}
+
+.hero-copy {
+  position: relative;
+}
+
+.hero-copy::after {
+  position: absolute;
+  top: -34px;
+  right: 12%;
+  color: #d994ad;
+  content: "✿";
+  font-size: 22px;
+  transform: rotate(-14deg);
+}
+
+.eyebrow {
+  color: #957e89;
+}
+
+.eyebrow-line {
+  background: #d58aa5;
+}
+
+h1,
+.projects-heading h2,
+.about-heading h2,
+.contact-band h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(68px, 8vw, 94px);
+  letter-spacing: -2px;
+  line-height: .92;
+}
+
+h1 span,
+.about-heading h2 span {
+  color: #c66f91;
+  font-style: italic;
+}
+
+.role {
+  color: #695963;
+}
+
+.role b {
+  color: #cf7898;
+}
+
+.intro {
+  color: #806f78;
+  line-height: 2;
+}
+
+.button-primary {
+  background: #c87494;
+  color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px #c8749428;
+}
+
+.button-primary:hover {
+  background: #b96384;
+}
+
+.text-link {
+  color: #725e69;
+}
+
+.portrait-wrap {
+  height: 400px;
+  width: 370px;
+}
+
+.portrait-glow {
+  background: radial-gradient(circle, #f4cbd8 0%, #f8e2e9 48%, transparent 72%);
+  opacity: .8;
+}
+
+.portrait {
+  width: 312px;
+  height: 312px;
+  border: 7px solid #fffafc;
+  box-shadow: 0 18px 55px #9c647629;
+  filter: saturate(.9);
+}
+
+.portrait-caption {
+  right: 0;
+  bottom: 20px;
+  border: 1px solid #eed9e2;
+  border-radius: 24px;
+  background: #fffafc;
+  color: #806b77;
+}
+
+.orbit {
+  border-color: #d99ab324;
+}
+
+.hero-index {
+  color: #9d8993;
+}
+
+.index-rule {
+  background: #dfbccb;
+}
+
+.social-section {
+  border-color: #ead8e0;
+}
+
+.section-label,
+.project-count {
+  color: #9a8791;
+}
+
+.section-line {
+  background: #ead8e0;
+}
+
+.social-grid {
+  gap: 13px;
+}
+
+.social-card {
+  min-height: 84px;
+  padding: 15px;
+  border-color: #f0dfe6;
+  border-radius: 14px;
+  background: #fffdfd;
+  box-shadow: 0 7px 22px #9c64760b;
+}
+
+.social-card:hover {
+  border-color: #dfadc0;
+  background: #fff;
+  box-shadow: 0 10px 24px #9c647615;
+}
+
+.social-icon {
+  border-radius: 11px;
+  background: #f9e9ef;
+  color: #b96687;
+}
+
+.social-card small,
+.arrow {
+  color: #927f89;
+}
+
+.projects-heading h2,
+.about-heading h2 {
+  font-size: 43px;
+  letter-spacing: -.5px;
+}
+
+.project-list {
+  display: grid;
+  gap: 11px;
+  border: 0;
+}
+
+.project-card {
+  grid-template-columns: 45px 1fr 30px;
+  padding: 21px 18px;
+  border: 1px solid #f0dfe6;
+  border-radius: 14px;
+  background: #fffdfd;
+  box-shadow: 0 6px 18px #9c64760a;
+}
+
+.project-card:hover {
+  border-color: #e3b7c8;
+  background: #fff;
+}
+
+.project-number,
+.project-symbol {
+  color: #c77896;
+}
+
+.project-title-row h3 {
+  color: #483740;
+}
+
+.project-date {
+  color: #a08d97;
+}
+
+.project-main p,
+.project-hint {
+  color: #897982;
+}
+
+.tags span {
+  border-color: #f0dce4;
+  border-radius: 20px;
+  background: #fff5f8;
+  color: #866f7b;
+}
+
+.project-hint a {
+  color: #b86485;
+}
+
+.about-section {
+  border: 1px solid #f0dce4;
+  border-radius: 22px;
+  background: linear-gradient(125deg, #fff0f4, #fff9fb 68%);
+}
+
+.about-content > p {
+  color: #806f78;
+}
+
+.education-note {
+  border-color: #f0dce4;
+  border-radius: 12px;
+  background: #fffafb;
+}
+
+.edu-mark {
+  border-radius: 10px;
+  background: #f8e6ed;
+  color: #b96687;
+}
+
+.education-note small {
+  color: #907d87;
+}
+
+.skills span {
+  border-color: #e8cbd7;
+  color: #795f6c;
+}
+
+.contact-band {
+  border: 1px solid #edcfdb;
+  border-radius: 18px;
+  background: linear-gradient(110deg, #f8e5ec, #fff2f6 70%, #f9eaf0);
+}
+
+.contact-band .eyebrow {
+  color: #9e7d8c;
+}
+
+.contact-band h2 {
+  color: #503b47;
+  font-size: 34px;
+}
+
+.contact-link {
+  border-color: #d8a8ba;
+  border-radius: 28px;
+  background: #fffafc;
+  color: #6e5260;
+}
+
+.contact-link span {
+  color: #bd6d8d;
+}
+
+footer {
+  color: #96838d;
+}
+
+.back-top {
+  color: #826c78;
+}
+
+/* Kaydırdıkça bölümleri yumuşakça göster */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TELEFON GÖRÜNÜMÜ DÜZELTME */
+@media (max-width: 760px) {
+
+  .page-shell {
+    width: calc(100% - 28px);
+    margin: 0 auto;
+  }
+
+  .topbar {
+    padding: 18px 4px;
+  }
+
+  .top-note {
+    font-size: 10px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding: 35px 0 65px;
+    gap: 0;
+  }
+
+  /* FOTOĞRAF */
+  .portrait-wrap {
+    order: 1;
+    width: 100%;
+    height: 265px;
+    margin: 0 auto 5px;
+  }
+
+  .portrait {
+    width: 215px;
+    height: 215px;
+  }
+
+  /* NOT KUTUSU */
+  .photo-note {
+    width: 135px;
+    padding: 10px 12px;
+    left: 3%;
+    bottom: 0;
+  }
+
+  .photo-note strong {
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .photo-note span {
+    font-size: 9px;
+  }
+
+  /* ÖĞREN · DENE · ÜRET */
+  .portrait-caption {
+    right: 3%;
+    top: 0;
+    font-size: 10px;
+  }
+
+  /* YAZI ALANI */
+  .hero-copy {
+    order: 2;
+    width: 100%;
+    padding-top: 20px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+  }
+
+  h1 {
+    font-size: clamp(50px, 15vw, 62px);
+    line-height: .88;
+    letter-spacing: -1px;
+    margin: 14px 0 16px;
+  }
+
+  .role {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .intro {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .button-primary {
+    font-size: 12px;
+    padding: 12px 16px;
+  }
+
+  .text-link {
+    font-size: 12px;
+  }
+
+  .hero-index {
+    order: 3;
+    position: relative;
+    left: 0;
+    bottom: auto;
+    margin-top: 35px;
+  }
+}
+
+/* ÇOK KÜÇÜK TELEFONLAR */
+@media (max-width: 380px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  .portrait {
+    width: 200px;
+    height: 200px;
+  }
+
+  .portrait-wrap {
+    height: 245px;
+  }
+
+  .photo-note {
+    width: 125px;
+    left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* Koyu mürdüm zemin, pudra pembe vurgular */
+:root {
+  --bg: #241923;
+  --panel: #30232f;
+  --panel2: #3b2b39;
+  --text: #fff2f5;
+  --muted: #c2aeba;
+  --accent: #e69ab4;
+  --line: #503b4c;
+  --mono: "DM Mono", monospace;
+  --sans: "Nunito Sans", sans-serif;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --hand: "Caveat", cursive;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 13% 12%, #6c405d62 0, transparent 31rem),
+    radial-gradient(ellipse at 88% 62%, #71425435 0, transparent 32rem),
+    #241923;
+  color: var(--text);
+}
+
+.ambient-one {
+  background: #d581a3;
+  opacity: .16;
+}
+
+.ambient-two {
+  background: #966082;
+  opacity: .17;
+}
+
+.topbar {
+  border-color: #563f50;
+}
+
+.wordmark,
+.top-note,
+.text-link,
+.back-top {
+  color: #f3dbe4;
+}
+
+.wordmark-mark {
+  border-color: #a96d88;
+  background: #392738;
+  color: #f0a9c1;
+}
+
+.top-note i,
+.caption-dot {
+  background: #f0a4bd;
+  box-shadow: 0 0 11px #e79cb8;
+}
+
+/* Kapak bölümü: fotoğraf ile başlık bilinçli olarak üst üste gelir */
+.hero {
+  display: block;
+  min-height: 680px;
+  padding: 92px 4% 75px;
+  overflow: hidden;
+}
+
+.portrait-wrap {
+  position: absolute;
+  top: 78px;
+  left: 4%;
+  width: 51%;
+  height: 500px;
+  justify-self: unset;
+}
+
+.portrait-glow {
+  inset: 2% 0 0 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #d58ba94d 0, #6b3e5b22 57%, transparent 72%);
+  filter: blur(24px);
+  opacity: 1;
+}
+
+.portrait {
+  position: absolute;
+  top: 25px;
+  left: 5%;
+  width: min(410px, 92%);
+  height: min(410px, 92%);
+  border: 1px solid #e6b0c359;
+  box-shadow: 0 28px 90px #120c15a8, 0 0 0 13px #e8abc11a;
+  filter: saturate(.92) brightness(.9);
+}
+
+.portrait-wrap::before {
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  right: 3%;
+  color: #f8e9ed;
+  content: "✧";
+  font-size: 34px;
+  transform: rotate(12deg);
+}
+
+.portrait-wrap::after {
+  position: absolute;
+  top: 115px;
+  left: -25px;
+  color: #d6b2c3;
+  content: "KODLA  ·  ÖĞREN  ·  ÜRET";
+  font: 9px var(--mono);
+  letter-spacing: 2px;
+  writing-mode: vertical-rl;
+}
+
+
+
+.photo-note {
+  position: absolute;
+  z-index: 3;
+  right: -2%;
+  bottom: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 184px;
+  padding: 15px 18px 17px;
+  border: 1px solid #f0d1dc;
+  border-radius: 3px 16px 3px 13px;
+  background: #f8e4eb;
+  box-shadow: 0 12px 35px #140c1680;
+  color: #4b3141;
+  transform: rotate(4deg);
+}
+
+.photo-note span {
+  color: #a66c84;
+  font: 9px var(--mono);
+  letter-spacing: 1px;
+}
+
+.photo-note strong {
+  font: 22px/1.04 var(--hand);
+}
+
+.portrait-caption {
+  right: 1%;
+  bottom: 0;
+  border: 1px solid #64485a;
+  background: #302230;
+  color: #e9cbd7;
+}
+
+.orbit-a {
+  width: 470px;
+  height: 470px;
+  border-color: #e8b2c322;
+}
+
+.orbit-b {
+  width: 520px;
+  height: 520px;
+  border-color: #e8b2c318;
+}
+
+.hero-copy {
+  z-index: 4;
+  width: 62%;
+  margin-left: 36%;
+  padding-top: 28px;
+}
+
+.hero-copy::after {
+  top: -28px;
+  right: 10%;
+  color: #f0abc2;
+  content: "✧";
+  font-size: 30px;
+}
+
+.hero .eyebrow,
+.section-label,
+.project-count {
+  color: #d7b7c6;
+}
+
+.eyebrow-line,
+.role b,
+h1 span,
+.about-heading h2 span {
+  color: #efa9c1;
+}
+
+.eyebrow-line {
+  background: #efa9c1;
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: clamp(78px, 9vw, 112px);
+  letter-spacing: -3px;
+  line-height: .82;
+}
+
+h1 span,
+.about-heading h2 span {
+  color: #efa9c1;
+}
+
+.role {
+  color: #f3dfe7;
+}
+
+.intro {
+  max-width: 390px;
+  color: #d0b9c5;
+}
+
+.button-primary {
+  background: #e69ab4;
+  box-shadow: 0 8px 25px #e69ab42b;
+  color: #321e2b;
+}
+
+.button-primary:hover {
+  background: #f0b4c8;
+}
+
+.hero-index {
+  bottom: 22px;
+  left: 4%;
+  color: #b698a8;
+}
+
+.index-rule,
+.section-line {
+  background: #654c5d;
+}
+
+/* Sosyal bağlantılar, küçük not kartları gibi serpiştirilir */
+.social-section {
+  padding-top: 32px;
+  border-color: #503b4c;
+}
+
+.social-grid {
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.social-card {
+  min-height: 102px;
+  align-items: flex-start;
+  padding: 17px 14px;
+  border-color: #5a4355;
+  border-radius: 4px 17px 4px 15px;
+  background: linear-gradient(145deg, #392938, #30232f);
+  box-shadow: 0 12px 28px #120c1538;
+}
+
+.social-card:nth-child(even) {
+  margin-top: 25px;
+}
+
+.social-card:hover {
+  border-color: #d58ba9;
+  background: #402e3f;
+}
+
+.social-icon {
+  flex-basis: 31px;
+  width: 31px;
+  height: 31px;
+  border: 1px solid #755268;
+  border-radius: 50%;
+  background: #4a3347;
+  color: #f1b3c8;
+}
+
+.social-card strong {
+  color: #fff0f4;
+}
+
+.social-card small,
+.arrow {
+  color: #c0a8b6;
+}
+
+/* Projeler: dengeli bir liste yerine farklı boyutlu kod notları */
+.projects-section {
+  padding-top: 20px;
+}
+
+.projects-heading h2,
+.about-heading h2,
+.contact-band h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+}
+
+.projects-heading h2,
+.about-heading h2 {
+  font-size: 47px;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 14px;
+  border: 0;
+}
+
+.project-card {
+  min-height: 190px;
+  grid-template-columns: 34px 1fr 18px;
+  gap: 8px;
+  padding: 20px 17px;
+  border: 1px solid #523d4e;
+  border-radius: 4px 19px 4px 17px;
+  background: #30232f;
+  box-shadow: 0 14px 32px #130d1733;
+}
+
+.project-card:first-child {
+  min-height: 226px;
+  grid-column: 1 / -1;
+  padding: 26px 25px;
+  background: linear-gradient(120deg, #50354a, #342536 74%);
+}
+
+.project-card:nth-child(2) {
+  margin-top: 30px;
+}
+
+.project-card:nth-child(4) {
+  margin-top: -20px;
+}
+
+.project-card:hover {
+  border-color: #d58ba9;
+  background-color: #392938;
+}
+
+.project-number,
+.project-symbol,
+.project-hint a {
+  color: #efa9c1;
+}
+
+.project-title-row h3 {
+  color: #fff0f4;
+}
+
+.project-date,
+.project-main p,
+.project-hint {
+  color: #c8afbd;
+}
+
+.tags span {
+  border-color: #705268;
+  background: #432f40;
+  color: #f0d5df;
+}
+
+/* Öz geçmiş alanı, pembe bir not kâğıdı gibi öne çıkar */
+.about-section {
+  position: relative;
+  margin-top: 15px;
+  border: 1px solid #a96d88;
+  border-radius: 3px 28px 3px 24px;
+  background: #f1dbe4;
+  box-shadow: 14px 15px 0 #58394f;
+}
+
+.about-section .eyebrow,
+.about-section .about-content > p,
+.about-section .education-note small {
+  color: #705565;
+}
+
+.about-section .eyebrow-line {
+  background: #a95f80;
+}
+
+.about-section .about-heading h2 {
+  color: #3b2937;
+}
+
+.about-section .about-heading h2 span {
+  color: #a64f75;
+}
+
+.education-note {
+  border-color: #d7b5c4;
+  border-radius: 4px 12px 4px 10px;
+  background: #faedf2;
+}
+
+.education-note strong {
+  color: #493343;
+}
+
+.edu-mark {
+  border-radius: 50%;
+  background: #f1d8e2;
+  color: #a84f75;
+}
+
+.skills span {
+  border-color: #cca3b5;
+  color: #674b5f;
+}
+
+.contact-band {
+  position: relative;
+  min-height: 160px;
+  overflow: hidden;
+  border: 1px solid #65455d;
+  border-radius: 5px 26px 5px 24px;
+  background: #332432;
+}
+
+.contact-band::after {
+  position: absolute;
+  top: -66px;
+  right: 23%;
+  color: #e899b333;
+  content: "✳";
+  font-size: 200px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.contact-band .eyebrow {
+  color: #d5b4c3;
+}
+
+.contact-band h2 {
+  color: #fff0f4;
+  font-size: 42px;
+}
+
+.contact-link {
+  z-index: 1;
+  border-color: #98667f;
+  border-radius: 3px 18px 3px 16px;
+  background: #f0dbe4;
+  color: #4b3344;
+}
+
+.contact-link span {
+  color: #a84f75;
+}
+
+footer {
+  color: #bda6b4;
+}
+
+/* Küçük ekranlarda fotoğraf, yazı ve projeler üst üste dizilir */
+@media (max-width: 760px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding: 30px 3% 75px;
+  }
+
+  .portrait-wrap {
+    order: 1;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 285px;
+    margin-bottom: 10px;
+  }
+
+  .portrait {
+    top: 0;
+    left: 50%;
+    width: 245px;
+    height: 245px;
+    transform: translateX(-50%);
+  }
+
+  .portrait-wrap::before {
+    top: 20px;
+    right: 15%;
+    bottom: auto;
+    left: auto;
+  }
+
+  .portrait-wrap::after {
+    left: 3%;
+    top: 55px;
+  }
+
+  .photo-note {
+    right: 3%;
+    bottom: 8px;
+    width: 155px;
+    padding: 11px 13px;
+  }
+
+  .portrait-caption {
+    right: 4%;
+    bottom: -9px;
+  }
+
+  .hero-copy {
+    order: 2;
+    width: 100%;
+    margin: 0;
+    padding-top: 24px;
+  }
+
+  h1 {
+    font-size: 76px;
+  }
+
+  .hero-copy::after {
+    top: -10px;
+    right: 8%;
+  }
+
+  .hero-index {
+    order: 3;
+    left: 3%;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .social-card:nth-child(even) {
+    margin-top: 16px;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card:first-child {
+    grid-column: auto;
+  }
+
+  .project-card:nth-child(2),
+  .project-card:nth-child(4) {
+    margin-top: 0;
+  }
+
+  .project-card {
+    min-height: 155px;
+  }
+
+  .about-section {
+    box-shadow: 7px 8px 0 #58394f;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 64px;
+  }
+
+  .photo-note {
+    right: 0;
+  }
+}
+
+
+/* Hero düzeni: iki ayrı sütun, metin fotoğrafın üstüne binmez */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(250px, .82fr) minmax(0, 1.18fr);
+  align-items: center;
+  gap: 4%;
+  min-height: 650px;
+  padding: 72px 4% 88px;
+  overflow: visible;
+}
+
+.portrait-wrap {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  place-items: center;
+  width: 100%;
+  height: 410px;
+}
+
+.portrait {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: min(100%, 385px);
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0;
+  transform: none;
+}
+
+.portrait-wrap::before {
+  top: auto;
+  right: auto;
+  bottom: 78px;
+  left: 8%;
+}
+
+.portrait-wrap::after {
+  top: 32%;
+  left: -7px;
+}
+
+.photo-note {
+  right: auto;
+  bottom: -5px;
+  left: 0;
+  width: 174px;
+}
+
+.portrait-caption {
+  top: 12px;
+  right: 0;
+  bottom: auto;
+}
+
+.hero-copy {
+  grid-column: 2;
+  grid-row: 1;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-copy::after {
+  top: -24px;
+  right: 10%;
+}
+
+h1 {
+  font-size: clamp(68px, 8vw, 96px);
+}
+
+.hero-index {
+  bottom: 22px;
+  left: 4%;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: auto;
+    padding: 30px 3% 75px;
+  }
+
+  .portrait-wrap {
+    order: 1;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+  }
+
+  .portrait {
+    width: 245px;
+    height: 245px;
+  }
+
+  .portrait-wrap::after {
+    top: 55px;
+    left: 3%;
+  }
+
+  .photo-note {
+    bottom: -50px;
+    right: -5px;
+    width: 155px;
+    padding: 11px 13px;
+  }
+
+  .portrait-caption {
+    top: 6px;
+    right: 4%;
+  }
+
+  .hero-copy {
+    order: 2;
+    width: 100%;
+    margin: 0;
+    padding-top: 16px;
+  }
+
+  h1 {
+    font-size: 76px;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 64px;
+  }
+}
+
+
+/* Projeler tek sütunda, tıklanınca açılan eşit paneller */
+.project-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  width: min(100%, 820px);
+  margin: 28px auto 0;
+}
+
+.project-card,
+.project-card:first-child {
+  display: block;
+  min-height: 0;
+  grid-column: auto;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #5a4355;
+  border-radius: 14px;
+  background: #30232f;
+  box-shadow: 0 8px 20px #130d1726;
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.project-card:nth-child(2),
+.project-card:nth-child(4) {
+  margin: 0;
+}
+
+.project-card:hover,
+.project-card[open] {
+  border-color: #b97895;
+  background: #382a38;
+}
+
+.project-summary {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 12px;
+  min-height: 82px;
+  padding: 15px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.project-summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-summary::marker {
+  content: "";
+}
+
+.project-summary:hover .project-title-row strong {
+  color: #f1b4c9;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-title-row strong {
+  color: #fff0f4;
+  font-size: 16px;
+  transition: color .2s ease;
+}
+
+.project-toggle {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid #76566b;
+  border-radius: 50%;
+  color: #f0b2c7;
+  font-size: 20px;
+  line-height: 1;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.project-card[open] .project-toggle {
+  transform: rotate(45deg);
+  background: #493348;
+}
+
+.project-details {
+  padding: 0 22px 19px 74px;
+  border-top: 1px solid #594355;
+  animation: open-project .25s ease both;
+}
+
+.project-details p {
+  max-width: 650px;
+  margin: 16px 0 13px;
+  color: #d3bcc9;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.project-hint {
+  width: min(100%, 820px);
+  margin: 18px auto 0;
+}
+
+@keyframes open-project {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Eşit kenarlar ve aynı ölçüde iç boşluklar */
+.about-section {
+  margin-top: 12px;
+  padding: 42px 5%;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.about-section .about-heading h2 {
+  font-size: 42px;
+  line-height: 1.14;
+}
+
+.contact-band {
+  min-height: 0;
+  margin-top: 32px;
+  padding: 28px 34px;
+  border-radius: 18px;
+}
+
+.contact-band::after {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .project-summary {
+    grid-template-columns: 31px minmax(0, 1fr) 30px;
+    gap: 8px;
+    padding: 14px 12px;
+  }
+
+  .project-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .project-title-row strong {
+    font-size: 14px;
+  }
+
+  .project-details {
+    padding: 0 14px 16px 51px;
+  }
+
+  .about-section {
+    padding: 30px 20px 36px;
+  }
+
+  .contact-band {
+    gap: 16px;
+    padding: 23px 20px;
+    border-radius: 16px;
+  }
+}
+
+
+/* Başlık ile proje panellerini aynı çizgide hizala */
+.projects-heading {
+  width: min(100%, 820px);
+  margin: 0 auto 28px;
+}
+
+/* Sembol yalnızca fotoğrafın üst kenarında dursun */
+.portrait-wrap::before {
+  top: 16px;
+  right: auto;
+  bottom: auto;
+  left: 8%;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="ambient ambient-one">
+    </div>
+    <div class="ambient ambient-two">
+    </div>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="wordmark" href="#top" aria-label="Ana sayfa"><span class="wordmark-mark">s.</span><span>sudeilekodluyoruz</span></a><span class="top-note"><i></i> KOD GÜNLÜĞÜM · 2026</span>
+      </header>
+      <!-- Tanıtım ve profil fotoğrafı -->
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span> MERHABA, BEN SUDE 
+          </div>
+          <h1>
+             Sude Nur <br><span>Kılıç.</span>
+          </h1>
+          <p class="role">
+             Yazılım Geliştirme <b>·</b> Web <b>·</b> Siber Güvenlik 
+          </p>
+          <p class="intro">
+             Bazen bir fikrin peşine düşüp saatlerce kod yazıyorum, bazen de yepyeni bir konuyu en baştan öğreniyorum. Burası; öğrendiklerimi ve ürettiklerimi bir araya getirdiğim küçük köşem. 
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:klcsude005@gmail.com">Benimle iletişime geç <span>↗</span></a><a class="text-link" href="#projeler">Projeleri keşfet <span>↓</span></a>
+          </div>
+        </div>
+        <div class="portrait-wrap">
+          <div class="portrait-glow">
+          </div>
+          <img 
+              class="portrait" 
+              src="images/sude.jpeg" 
+              alt="Sude Nur Kılıç bilgisayar başında"
+               >
+          <div class="photo-note"><span> NOT</span><strong>merak ettiğim her şey benim için<br>yeni bir başlangıç</strong></div>
+          <div class="portrait-caption">
+            <span class="caption-dot"></span> öğren · dene · üret 
+          </div>
+          <span class="orbit orbit-a"></span><span class="orbit orbit-b"></span>
+        </div>
+        <div class="hero-index">
+          <span>01</span><span class="index-rule"></span><span>PORTFOLYO</span>
+        </div>
+      </section>
+      <!-- Sosyal medya ve iletişim bağlantıları -->
+      <section class="social-section" aria-label="Sosyal medya bağlantıları">
+        <div class="section-label">
+          <span>BAĞLANTILAR</span><span class="section-line"></span>
+        </div>
+        <div class="social-grid">
+          <a class="social-card" href="https://github.com/sudeilekodluyoruz" target="_blank" rel="noreferrer"><span class="social-icon">GH</span><span><strong>GitHub</strong><small>Projelerim ve kodlarım</small></span><span class="arrow">↗</span></a><a class="social-card" href="https://www.instagram.com/sudeilekodluyoruz/" target="_blank" rel="noreferrer"><span class="social-icon">IG</span><span><strong>Instagram</strong><small>@sudeilekodluyoruz</small></span><span class="arrow">↗</span></a><a class="social-card" href="https://www.linkedin.com/in/sudenurkilicc" target="_blank" rel="noreferrer"><span class="social-icon">in</span><span><strong>LinkedIn</strong><small>Profesyonel profilim</small></span><span class="arrow">↗</span></a><a class="social-card" href="mailto:klcsude005@gmail.com"><span class="social-icon">@</span><span><strong>E-posta</strong><small>Bir mesaj gönder</small></span><span class="arrow">↗</span></a>
+        </div>
+      </section>
+      <!-- Öne çıkan projeler -->
+      <section class="projects-section" id="projeler">
+        <div class="projects-heading">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-line"></span> KOD DEFTERİMDEN 
+            </div>
+            <h2>
+               Üzerinde çalıştıklarım<span>.</span>
+            </h2>
+          </div>
+          <span class="project-count">04 PROJE</span>
+        </div>
+        <div class="project-list">
+          <details class="project-card">
+            <summary class="project-summary">
+              <span class="project-number">01</span>
+              <span class="project-title-row">
+                <strong>Sude’nin Kitaplığı</strong>
+                <span class="project-date">HAZİRAN 2026</span>
+              </span>
+              <span class="project-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="project-details">
+              <p>Kitapları inceleme, filtreleme ve detaylarını görüntüleme özellikleri bulunan dinamik kitap platformu. Yönetim paneliyle kitap ve görseller eklenip düzenlenebiliyor.</p>
+              <div class="tags"><span>PHP</span><span>MySQL</span><span>CRUD</span></div>
+            </div>
+          </details>
+
+          <details class="project-card">
+            <summary class="project-summary">
+              <span class="project-number">02</span>
+              <span class="project-title-row">
+                <strong>Veteriner Klinik Otomasyonu</strong>
+                <span class="project-date">MAYIS 2026</span>
+              </span>
+              <span class="project-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="project-details">
+              <p>Hayvan ve sahip kayıtları, hasta yönetimi, kullanıcı girişi ve veritabanı işlemlerini bir araya getiren masaüstü uygulaması.</p>
+              <div class="tags"><span>C#</span><span>.NET</span><span>Windows Forms</span></div>
+            </div>
+          </details>
+
+          <details class="project-card">
+            <summary class="project-summary">
+              <span class="project-number">03</span>
+              <span class="project-title-row">
+                <strong>Güvenli Kasa</strong>
+                <span class="project-date">WEB UYGULAMASI</span>
+              </span>
+              <span class="project-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="project-details">
+              <p>Hesap bilgilerini düzenlemeye ve güçlü parolalar oluşturmaya yardımcı olan web tabanlı parola yöneticisi.</p>
+              <div class="tags"><span>JavaScript</span><span>Güvenlik</span></div>
+            </div>
+          </details>
+
+          <details class="project-card">
+            <summary class="project-summary">
+              <span class="project-number">04</span>
+              <span class="project-title-row">
+                <strong>Minik-Plan-m</strong>
+                <span class="project-date">WEB UYGULAMASI</span>
+              </span>
+              <span class="project-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="project-details">
+              <p>Günlük planları ve etkinlikleri takip etmeyi kolaylaştıran kişisel takvim uygulaması.</p>
+              <div class="tags"><span>JavaScript</span><span>Takvim</span></div>
+            </div>
+          </details>
+        </div>
+        <p class="project-hint">
+           Proje bağlantılarını GitHub profilimde bulabilirsin <a href="https://github.com/sudeilekodluyoruz" target="_blank" rel="noreferrer">GitHub’a git ↗</a>
+        </p>
+      </section>
+      <!-- Kısa özgeçmiş, eğitim ve beceriler -->
+      <section class="about-section">
+        <div class="about-heading">
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span> BİR TIK DAHA YAKINDAN 
+          </div>
+          <h2>
+             Merakla öğren, <br><span>üreterek geliş.</span>
+          </h2>
+        </div>
+        <div class="about-content">
+          <p>
+             Kırıkkale Üniversitesi Bilgisayar Programcılığı mezunuyum. Yazılım geliştirme ve web teknolojilerindeki altyapımı siber güvenlik merakımla büyütüyorum. Şimdi İstanbul Üniversitesi AUZEF’te İşletme lisans eğitimime devam ediyor; teknik bilgimi iş dünyasıyla buluşturmayı hedefliyorum. 
+          </p>
+          <div class="education-note">
+            <span class="edu-mark">↗</span>
+            <div>
+              <strong>Öğrenmeye devam</strong><small>İşletme · Lisans · İstanbul Üniversitesi AUZEF</small>
+            </div>
+          </div>
+             <div class="education-note">
+            <span class="edu-mark">↗</span>
+            <div>
+              <strong>MEZUN</strong><small>Bilgisayar Programcılığı · Önlisans · Kırıkkale Üniversitesi</small>
+            </div>
+          </div>
+          <div class="skills">
+            <span>C#</span><span>PHP</span><span>JavaScript</span><span>Python</span><span>HTML & CSS</span><span>SQL / MySQL</span><span>Siber güvenlik</span>
+          </div>
+          
+        </div>
+      </section>
+      <section class="contact-band">
+        <div>
+          <span class="eyebrow">BİRLİKTE ÜRETELİM</span>
+          <h2>
+             Bir fikrin mi var? 
+          </h2>
+        </div>
+        <a class="contact-link" href="mailto:klcsude005@gmail.com">Bana yaz <span>↗</span></a>
+      </section>
+      <footer>
+        <a class="wordmark" href="#top"><span class="wordmark-mark">s.</span><span>sudeilekodluyoruz</span></a><span>© <span id="year"></span> Sude Nur Kılıç</span><a class="back-top" href="#top">Başa dön ↑</a>
+      </footer>
+    </main>
+    <script>
+
+      // Alt bilgideki yılı her sene otomatik güncelle.
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Bölümler ekrana yaklaşınca yumuşakça görünür olsun.
+      const revealItems = document.querySelectorAll(
+        ".hero-copy, .portrait-wrap, .social-card, .projects-heading, " +
+        ".project-card, .project-hint, .about-heading, .about-content, .contact-band"
+      );
+
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: "0px 0px -30px 0px"
+        });
+
+        revealItems.forEach((item, index) => {
+          item.classList.add("reveal");
+
+          if (item.classList.contains("social-card") || item.classList.contains("project-card")) {
+            item.style.transitionDelay = `${(index % 4) * 80}ms`;
+          }
+
+          revealObserver.observe(item);
+        });
+      }
+
+    </script>
+  </body>
+</html>
