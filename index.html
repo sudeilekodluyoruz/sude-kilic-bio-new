@@ -2181,6 +2181,42 @@ body {
   }
 }
 
+/* =====================================================
+   DÜZELTME 3: Fotoğraf daireyi tamamen doldursun
+   (görseldeki siyah kenarlar yakınlaştırılarak kesilir)
+   ===================================================== */
+.portrait {
+  overflow: hidden;
+  border-radius: 50%;
+  background: #241923;
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 47%;
+  border-radius: 50%;
+  transform: scale(1.2); /* siyah kenar hâlâ görünürse 1.3, fazla kırpıyorsa 1.1 yap */
+  transform-origin: 50% 50%;
+}
+
+/* =====================================================
+   DÜZELTME 4: "KODLA · ÖĞREN · ÜRET" yazısı dairenin dışında kalsın
+   ===================================================== */
+.portrait-wrap::after {
+  left: -36px;
+  top: 28%;
+}
+
+@media (max-width: 760px) {
+  .portrait-wrap::after {
+    left: -30px;
+    top: 18%;
+  }
+}
+
 </style>
   </head>
   <body>
@@ -2214,11 +2250,12 @@ body {
         <div class="portrait-wrap">
           <div class="portrait-glow">
           </div>
-          <img 
-              class="portrait" 
+          <div class="portrait">
+            <img 
               src="images/sude.jpeg" 
               alt="Sude Nur Kılıç bilgisayar başında"
                >
+          </div>
           <div class="photo-note"><span> NOT</span><strong>merak ettiğim her şey benim için<br>yeni bir başlangıç</strong></div>
           <div class="portrait-caption">
             <span class="caption-dot"></span> öğren · dene · üret 
