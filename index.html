@@ -2217,6 +2217,48 @@ body {
   }
 }
 
+/* =====================================================
+   DÜZELTME 5: Not kutusu küçük olsun, fotoğrafın köşesinde dursun
+   ===================================================== */
+.photo-note {
+  padding: 11px 14px 13px;
+}
+
+.photo-note strong {
+  font-size: 18px;
+}
+
+@media (max-width: 760px) {
+  .photo-note {
+    right: -11%;
+    left: auto;
+    bottom: -14%;
+    width: clamp(104px, 37%, 122px);
+    padding: 8px 10px 10px;
+    gap: 3px;
+  }
+
+  .photo-note span {
+    font-size: 8px;
+  }
+
+  .photo-note strong {
+    font-size: 15px;
+    line-height: 1.02;
+  }
+}
+
+@media (max-width: 380px) {
+  .photo-note {
+    right: -8%;
+    width: clamp(98px, 36%, 112px);
+  }
+
+  .photo-note strong {
+    font-size: 14px;
+  }
+}
+
 </style>
   </head>
   <body>
